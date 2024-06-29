@@ -15,6 +15,12 @@ class DataFrameBasic:
         df = pd.DataFrame(data)
         print(df)
 
+        print("\n데이터 프레임 기본 정보 확인")
+        # 데이터 프레임 정보 출력
+        print("df.info(): ", df.info())
+        # 데이터 프레임의 통계 요약 출력
+        print("\ndf.describe(): \n", df.describe())
+
 if __name__ == '__main__':
     dfb = DataFrameBasic()
     dfb.data_frame_basic()
