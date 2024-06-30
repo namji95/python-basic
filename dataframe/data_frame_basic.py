@@ -21,6 +21,14 @@ class DataFrameBasic:
         # 데이터 프레임의 통계 요약 출력
         print("\ndf.describe(): \n", df.describe())
 
+        print("\n데이터 선택 및 필터링")
+        # 특정 열 선택
+        print(f"\n특정 열 선택:\n{df['이름']}")
+        # 여러 열 선택
+        print(f"\n여러 열 선택:\n{df[['이름', '나이']]}")
+        # 조건에 맞는 행 필터링
+        print(f"\n조건에 맞는 행 필터링:\n{df[df['나이'] > 25]}")
+
 if __name__ == '__main__':
     dfb = DataFrameBasic()
     dfb.data_frame_basic()
