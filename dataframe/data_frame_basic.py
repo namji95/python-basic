@@ -1,3 +1,5 @@
+from pickle import FALSE
+
 import pandas as pd
 
 
@@ -30,10 +32,18 @@ class DataFrameBasic:
         print(f"\n조건에 맞는 행 필터링:\n{df[df['나이'] > 25]}")
 
         print("\n--------------데이터 추가 및 삭제--------------")
+        # 데이터 추가
         df['국가'] = ['한국', '한국', '한국']
         print(f"데이터 추가:\n{df}")
+        # 열 삭제
         df = df.drop('국가', axis=1)
-        print(f"열 삭제:\n{df}")
+        print(f"\n열 삭제:\n{df}")
+
+        print("\n--------------데이터 정렬--------------")
+        # 데이터 프레임 오름차순 정렬
+        print(f"나이 기준 오름차순 정렬:\n{df.sort_values('나이')}")
+        # 데이터 프레임 내림차순 정렬
+        print(f"\n나이 기준 내림차순 정렬:\n{df.sort_values('나이', ascending=False)}")
 
 if __name__ == '__main__':
     dfb = DataFrameBasic()
