@@ -45,6 +45,14 @@ class DataFrameBasic:
         # 데이터 프레임 내림차순 정렬
         print(f"\n나이 기준 내림차순 정렬:\n{df.sort_values('나이', ascending=False)}")
 
+        print("\n--------------데이터 통계 분석--------------")
+        # 나이 열의 평균
+        print(f"나이 열의 평균: {df['나이'].mean()}")
+        # 나이 열의 최대값
+        print(f"나이 열의 최대값: {df['나이'].max()}")
+        # 나이 열의 최소값
+        print(f"나이 열의 최소값: {df['나이'].min()}")
+
 if __name__ == '__main__':
     dfb = DataFrameBasic()
     dfb.data_frame_basic()
