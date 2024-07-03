@@ -1,5 +1,3 @@
-from pickle import FALSE
-
 import pandas as pd
 
 
