@@ -37,6 +37,15 @@ class DataFrameDeepening:
         df_filled = df_with_na.fillna(df_with_na.mean(numeric_only=True))
         print(f"\n결측치를 평균으로 채운 데이터:\n{df_filled}")
 
+        print("\n--------------데이터 프레임 조건부 변환 및 필터링--------------")
+        # 직원들의 급여를 10% 인상
+        df['급여'] = df['급여'].apply(lambda x: x * 1.1 if x >= 4200 else x)
+        print(f"급여를 10% 인상한 데이터:\n{df}")
+
+        # 나이가 30 이상인 직원만 필터링
+        filtered_df = df[df['나이'] >= 30]
+        print(f"\n나이가 30 이상인 직원들:\n{filtered_df}")
+
 if __name__ == '__main__':
     data_frame_deepening = DataFrameDeepening()
     data_frame_deepening.data_frame_deepening()
