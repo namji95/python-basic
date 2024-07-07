@@ -46,6 +46,15 @@ class DataFrameDeepening:
         filtered_df = df[df['나이'] >= 30]
         print(f"\n나이가 30 이상인 직원들:\n{filtered_df}")
 
+        print("\n--------------데이터 프레임을 다른 형식으로 변환--------------")
+        # 데이터 프레임을 CSV 파일로 저장
+        df.to_csv(r'C:\WorkSpace\python-basic\data\employee_data.csv', index=False)
+        print("데이터 프레임을 CSV 파일로 변환 후 python-baisc의 data 패키지에 저장했습니다.")
+
+        # 데이터 프레임을 Excel 파일로 저장
+        df.to_excel(r'C:\WorkSpace\python-basic\data\employee_data.xlsx', index=False)
+        print("데이터 프레임을 Excel 파일로 변환 후 python-baisc의 data 패키지에 저장했습니다.")
+
 if __name__ == '__main__':
     data_frame_deepening = DataFrameDeepening()
     data_frame_deepening.data_frame_deepening()
