@@ -55,6 +55,11 @@ class DataFrameDeepening:
         df.to_excel(r'C:\WorkSpace\python-basic\data\employee_data.xlsx', index=False)
         print("데이터 프레임을 Excel 파일로 변환 후 python-baisc의 data 패키지에 저장했습니다.")
 
+        print("\n--------------데이터 프레임으로 피벗 테이블 생성--------------")
+        pivot_table = df.pivot_table(values='나이', index='부서', aggfunc='mean')
+        # 부서별로 나이의 평균을 구하는 피벗 테이블 생성
+        print(f"부서별 나이 평균 피벗 테이블:\n{pivot_table}")
+
 if __name__ == '__main__':
     data_frame_deepening = DataFrameDeepening()
     data_frame_deepening.data_frame_deepening()
