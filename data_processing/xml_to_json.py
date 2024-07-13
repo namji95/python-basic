@@ -1,7 +1,7 @@
 import json
 import xmltodict
 
-with open("../data/xml_to_json.xml", "r") as f:
+with open("../data/test.xml", "r", encoding='UTF-8') as f:
     xml_data = f.read()
 
 print(f"\nxml 데이터 파일 읽어와서 출력한 결과: \n{xml_data}")

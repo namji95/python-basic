@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GoodsServicesDetails>
+    <GoodsServices>
+        <ClassDescriptionDetails>
+            <ClassDescription>
+                <ClassNumber>9</ClassNumber>
+                <GoodsServicesDescription languageCode="de">Software.</GoodsServicesDescription>
+                <GoodsServicesDescription languageCode="el">Λογισμικό.</GoodsServicesDescription>
+                <GoodsServicesDescription languageCode="en">Software.</GoodsServicesDescription>
+                <GoodsServicesDescription languageCode="es">Software.</GoodsServicesDescription>
+                <GoodsServicesDescription languageCode="et">Arvutitarkvara.</GoodsServicesDescription>
+            </ClassDescription>
+        </ClassDescriptionDetails>
+    </GoodsServices>
+</GoodsServicesDetails>
