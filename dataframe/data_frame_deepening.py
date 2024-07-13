@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 class DataFrameDeepening:
@@ -59,6 +60,24 @@ class DataFrameDeepening:
         pivot_table = df.pivot_table(values='나이', index='부서', aggfunc='mean')
         # 부서별로 나이의 평균을 구하는 피벗 테이블 생성
         print(f"부서별 나이 평균 피벗 테이블:\n{pivot_table}")
+
+        print("\n--------------데이터 프레임으로 데이터 시각화--------------")
+        grouped_df = df.groupby('부서')['급여'].mean()
+
+        # Window 환경 한글 설정
+        plt.rc('font', family='Malgun Gothic')
+        # 음수가 깨지지 않도록 설정
+        plt.rcParams['axes.unicode_minus'] = False
+        # 그래프 형태
+        grouped_df.plot(kind='bar')
+        # 제목
+        plt.title('부서별 평균 급여')
+        # x축
+        plt.xlabel('부서')
+        # y축
+        plt.ylabel('평균 급여')
+        # View
+        plt.show()
 
 if __name__ == '__main__':
     data_frame_deepening = DataFrameDeepening()
