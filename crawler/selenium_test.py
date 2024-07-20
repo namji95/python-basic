@@ -22,4 +22,5 @@ if __name__ == '__main__':
     selenium_test = SeleniumTest()
     selenium_test.start_selenium()
 
+
 # todo: 파일 이름 또는 클래스 이름이 라이브러리 이름과 같을 경우 에러 발생 예약어 조심
