@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<library><book id="101"><title>Python Programming</title><author>John Doe</author><genre>Programming</genre><published>2021</published><available>true</available></book><book id="102"><title>Machine Learning Basics</title><author>Jane Smith</author><genre>AI</genre><published>2020</published><available>false</available></book></library>
