@@ -14,4 +14,11 @@
         <published>2020</published>
         <available>false</available>
     </book>
+    <book id="103">
+        <title>Data Science Handbook</title>
+        <author>Emily White</author>
+        <genre>Data Science</genre>
+        <published>2019</published>
+        <available>true</available>
+    </book>
 </library>
