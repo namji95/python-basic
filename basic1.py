@@ -6,3 +6,9 @@ for i in range(leg):
 
 area = (leg ** 2) / 2
 print('넓이: ', area)
+
+print('\n활용 예제\n')
+inputVal = int(input('입력: '))
+
+answer = inputVal ** 2
+print(answer)
