@@ -1,6 +1,6 @@
-import re
-
 from konlpy.tag import Okt
+from wordcloud import WordCloud, STOPWORDS
+import matplotlib.pyplot as plt
 
 okt = Okt()
 
@@ -75,3 +75,53 @@ print('단, 의미없는 조사는 제외하는 전처리 작업도 수행해야
 #     else:
 #         break
 #     num += 1
+
+file = open("C:\workSpace\운수좋은날.txt", 'r', encoding='UTF-8')
+file_text = file.read()
+
+okt_file_text = okt.morphs(file_text, norm=True)
+
+oktTag = []
+for token in okt_file_text:
+    oktTag += okt.pos(token)
+
+file = open("C:\workSpace\불용어.txt", 'r', encoding='UTF-8')
+stopWords = file.read()
+stopWord = stopWords.split()
+stopPos = ['Suffix','Punctuation','Josa','Foreign','Alpha','Number']
+
+word = []
+for tag in oktTag:
+    if tag[1] not in stopPos:
+        if tag[0] not in stopWord:
+            word.append(tag[0])
+
+counts = dict()
+for text in word:
+    counts[text] = counts.get(text, 0) + 1
+
+counts_val_reverse = sorted(counts.items(),
+                            reverse=True,
+                            key=lambda item: item[1])
+
+num = 1
+text = ''
+for key, value in counts_val_reverse:
+    if num <= 20:
+        print(key, " : ", value)
+        word += key
+    else:
+        break
+    num += 1
+
+for text_word in word:
+    text += text_word + ' '
+
+# 워드 클라우드를 생성하며, 생성된 워드 클라우드를 myWC 이름의 변수에 저장하
+STOPWORDS.add(stopWords)
+myWC = WordCloud(font_path="C:/workSpace/NanumFontSetup_OTF_GOTHIC/NanumGothic.otf", max_words=20, background_color="white", stopwords=STOPWORDS).generate(text)
+# 워드 클라이드의 크기 정의
+plt.figure(figsize=(5, 5))
+plt.imshow(myWC)
+plt.axis('off')
+plt.show()
