@@ -46,6 +46,7 @@ print('\n함수 연습 문제 2')
 for i in range(1, 10):
     for j in range(1, 10):
         print(i, ' * ', j, i * j)
+    print()
 
 
 def multi(m):
@@ -55,4 +56,4 @@ def multi(m):
 if __name__ == '__main__':
     for i in range(2, 10):
         multi(i)
-        print
+        print()
