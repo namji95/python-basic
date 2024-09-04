@@ -47,11 +47,8 @@ print("2차원 배열 인덱스를 이용한 원소 추출")
 print("['1', ['2', '3', '4'], '5'] 해당 배열은 인덱스 1번에 3개의 원소를 갖고 있다는 의미입니다. 그래서 원소를 꺼낼 때에는 배열이름[1][0] 이런식으로 꺼낼 수 있습니다.")
 print("twoList[2] : ", twoList[2])
 print("twoList[1][0] : ", twoList[1][0])
-print("리스트 원소합")
-one_to_ten = list(range(1, 11))
-print("one_to_ten = list(range(1, 11)) : ", one_to_ten)
 
-print("\n 문자열을 문자열 리스트로 바꿔보기")
+print("\n문자열을 문자열 리스트로 바꿔보기")
 print("for문 이용")
 character = []
 s = 'hello python'
@@ -76,3 +73,8 @@ print("type(strNum) : ", type(strNum))
 floatStr = float(s)
 print("floatStr = float(s) : ", floatStr)
 print("type(floatStr) : ", type(floatStr))
+
+print("\n리스트 원소합")
+one_to_ten = list(range(1, 11))
+print("one_to_ten = list(range(1, 11)) : ", one_to_ten)
+print("sum(one_to_ten) : ", sum(one_to_ten))
