@@ -2,19 +2,32 @@ from datetime import datetime, timedelta
 import json
 import requests
 
+'''
+End point = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0"
+Encoding = "SJpTwB%2B9NLadh2zz0JcxICsLgq3BYrPpGHh9M9cLDuWS4ifD3Z6%2FK4eyHmegOkiMGXVYB5TpJ0QKkoThu410hQ%3D%3D"
+Decoding = "SJpTwB+9NLadh2zz0JcxICsLgq3BYrPpGHh9M9cLDuWS4ifD3Z6/K4eyHmegOkiMGXVYB5TpJ0QKkoThu410hQ=="
+
+url = 'http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst'
+params ={'serviceKey' : 'SJpTwB+9NLadh2zz0JcxICsLgq3BYrPpGHh9M9cLDuWS4ifD3Z6/K4eyHmegOkiMGXVYB5TpJ0QKkoThu410hQ==', 'pageNo' : '1', 'numOfRows' : '60', 'dataType' : 'xml', 'base_date' : '20240905', 'base_time' : '1000', 'nx' : '59', 'ny' : '125' }
+
+response = requests.get(url, params=params)
+print(response.content)
+'''
+
 # 설정 시간의 날씨 정보 모두 받아오기
-serviceKey = ""
+rink = "http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst"
+serviceKey = "SJpTwB%2B9NLadh2zz0JcxICsLgq3BYrPpGHh9M9cLDuWS4ifD3Z6%2FK4eyHmegOkiMGXVYB5TpJ0QKkoThu410hQ%3D%3D"
 numOfRows = 100
 pageNO = 1
 dataType = 'json'
 base_date = '20240905'
-base_time = '1300'
+base_time = '1200'
 nx = 59
 ny = 125
 
-url = f"http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtFcst?serviceKey={serviceKey}&numOfRows={numOfRows}&pageNo={pageNO}&dataType={dataType}&base_date={base_date}&base_time={base_time}&nx={nx}&ny={ny}"
+url = f"{rink}?serviceKey={serviceKey}&numOfRows={numOfRows}&pageNo={pageNO}&dataType={dataType}&base_date={base_date}&base_time={base_time}&nx={nx}&ny={ny}"
 
-response = requests.get(url, verify=True)
+response = requests.get(url)
 res = json.loads(response.text)
 
 # 받아온 날씨 정보를 원하는 형식으로 수정
@@ -49,7 +62,6 @@ def deg_to_dir(deg):
     else:
         close_dir = deg_code[deg]
     return close_dir
-deg_to_dir(0)
 
 # category 값 커스텀
 pty_code = {0 : '강수 없음', 1 : '비', 2 : '비/눈', 3 : '눈', 5 : '빗방울눈날림', 6 : '진눈깨비', 7 : '눈날림'}
