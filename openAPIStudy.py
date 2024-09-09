@@ -20,8 +20,8 @@ serviceKey = "SJpTwB%2B9NLadh2zz0JcxICsLgq3BYrPpGHh9M9cLDuWS4ifD3Z6%2FK4eyHmegOk
 numOfRows = 100
 pageNO = 1
 dataType = 'json'
-base_date = '20240905'
-base_time = '1200'
+base_date = '20240909'
+base_time = '1000'
 nx = 59
 ny = 125
 
