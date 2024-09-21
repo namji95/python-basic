@@ -12,6 +12,7 @@ class TextCounter:
         self.sentences_tag = [] # 형태소 분석 결과
         self.stop_word_list = []  # 불용어 리스트
         self.after_stop_word = []  # 불용어 제거된 결과
+        self.result = []  # 가장 많이 나온 단어 10개 저장
 
     # okt 기준 형태소 분리
     def morpheme_separation_space(self):
@@ -44,10 +45,19 @@ class TextCounter:
 
         return self.after_stop_word
 
+    # 최종 가장 많이 나온 단어 10개
+    def top_count(self):
+        # 가장 많이 나온 단어 10개 저장
+        counts = Counter(self.after_stop_word)
+        self.result.extend(counts.most_common(10))
+
+        return self.result
+
 if __name__ == '__main__':
     text_class = TextCounter(r"C:\WorkSpace\Python\python-basic\blog\운수좋은날.txt")
     text_class.morpheme_separation_space()
     text_class.stop_words_space()
-    result = text_class.remove_stop_words()
+    text_class.remove_stop_words()
+    result = text_class.top_count()
 
     print(result)
