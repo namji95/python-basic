@@ -45,8 +45,7 @@ print('\n--------------딕셔너리 데이터 프레임 수정--------------')
 frame_add_col = pd.DataFrame(dictionaryFrame, columns=['age', 'height', 'weight', 'num'])
 print('\n--------------딕셔너리 데이터 프레임 열 추가--------------')
 print(frame_add_col)
-
-print('\n--------------추가된 열에 대한 값 추가--------------')
+print('--------------추가된 열에 대한 값 추가--------------')
 frame_add_col['num'] = [1, 2, 3]
 print(frame_add_col)
 
