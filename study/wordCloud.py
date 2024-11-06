@@ -2,9 +2,8 @@ import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 from PIL import Image
 import numpy as np
-import pandas as pd
 
-from blog.wordCloudMostCommonWords import TextCounter
+from study.wordCloudMostCommonWords import TextCounter
 
 
 class WordCloudExample:
