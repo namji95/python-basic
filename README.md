@@ -9,3 +9,4 @@
 ##### 학습 내용
 - isinstance (type 패키지 - isinstance_ex)
 - for (for 패키지 - for_ex)
+- enumerate (for 패키지 - enumerate_ex)
