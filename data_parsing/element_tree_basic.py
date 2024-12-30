@@ -6,7 +6,7 @@ class ElementTreeBasic:
     def element_tree_basic(self):
         print("Element Tree Basic")
 
-        print("-----Element Tree 생성 및 저장-----")
+        print("\n-----Element Tree 생성 및 저장-----")
         # 루트 요소 생성
         library = ET.Element("library")  # <library> 태그 생성
         # 책 데이터 추가
@@ -26,7 +26,7 @@ class ElementTreeBasic:
 
         print(f"XML 파일이 저장된 위치: {os.path.abspath(save_path)}")
 
-        print("-----xml 파일 읽기 및 모든 책 정보 출력-----")
+        print("\n-----xml 파일 읽기 및 모든 책 정보 출력-----")
         # 파일 경로 지정
         file_path = r"C:\WorkSpace\python-basic\data\element_tree_basic_data.xml"  # raw string 사용
 
@@ -43,6 +43,11 @@ class ElementTreeBasic:
             published = book.find("published").text
             available = book.find("available").text
             print(f"[ID: {book_id}] {title} by {author} ({genre}, {published}) - Available: {available}")
+
+        print("\n-----xml 특정 조건의 책 찾기 (AI 장르 책 검색)-----")
+        for book in root.findall("book"):
+            if book.find("genre").text == "AI":
+                print(f"AI 관련 도서: {book.find('title').text} by {book.find('author').text}")
 
     def add_book(self, library, book_id, title, author, genre, published, available):
         # 책을 추가하는 함수 정의
