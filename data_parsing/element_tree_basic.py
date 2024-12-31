@@ -36,18 +36,29 @@ class ElementTreeBasic:
 
         # 모든 책 정보 출력
         for book in root.findall("book"):
-            book_id = book.get("id")
-            title = book.find("title").text
-            author = book.find("author").text
-            genre = book.find("genre").text
-            published = book.find("published").text
-            available = book.find("available").text
-            print(f"[ID: {book_id}] {title} by {author} ({genre}, {published}) - Available: {available}")
+            book_info = self.print_element(book)
+
+            print(book_info)
 
         print("\n-----xml 특정 조건의 책 찾기 (AI 장르 책 검색)-----")
         for book in root.findall("book"):
             if book.find("genre").text == "AI":
                 print(f"AI 관련 도서: {book.find('title').text} by {book.find('author').text}")
+
+        print("\n-----xml 정보 수정 (출판 연도 업데이트)-----")
+        print("수정 전")
+        for book in root.findall("book"):
+            book_info = self.print_element(book)
+            print(book_info)
+
+        for book in root.findall("book"):
+            if book.get("id") == "103":
+                book.find("published").text = "1995"
+
+        print("\n수정 후")
+        for book in root.findall("book"):
+            book_info = self.print_element(book)
+            print(book_info)
 
     def add_book(self, library, book_id, title, author, genre, published, available):
         # 책을 추가하는 함수 정의
@@ -57,6 +68,23 @@ class ElementTreeBasic:
         ET.SubElement(book, "genre").text = genre # <genre> 태그 생성 및 텍스트 추가
         ET.SubElement(book, "published").text = str(published) # <published> 태그 생성 및 텍스트 추가
         ET.SubElement(book, "available").text = str(available).lower() # <available> 태그 생성 및 (소문자로 변환)
+
+    def print_element(self, book):
+        book_id = book.get("id")
+        title = book.find("title").text
+        author = book.find("author").text
+        genre = book.find("genre").text
+        published = book.find("published").text
+        available = book.find("available").text
+
+        book_info = (f"id: {book_id}, "
+                     f"title: {title}, "
+                     f"author: {author}, "
+                     f"genre: {genre}, "
+                     f"published: {published}, "
+                     f"available: {available}")
+
+        return book_info
 
 if __name__ == '__main__':
     element_tree_basic = ElementTreeBasic()
