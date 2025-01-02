@@ -16,7 +16,12 @@ class ForEx:
         print("\n튜플을 활용한 for문 예제 3")
         coordinates = [(1, 2), (3, 4), (5, 6)]
         for x, y in coordinates:
-            print(f"튜플을 이용한 for문 : {x}, ")
+            print(f"튜플을 이용한 for문 : {x}, {y} ")
+
+        print("\n딕셔너리를 활용한 for문 예제 4")
+        person = {"name": "Python", "age": 25, "city": "Seoul"}
+        for key, value in person.items():
+            print(f"딕셔너리를 활용한 for문 : key = {key}, value = {value}")
 
 if __name__ == '__main__':
     for_ex = ForEx()
