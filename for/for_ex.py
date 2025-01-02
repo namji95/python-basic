@@ -8,6 +8,8 @@ class ForEx:
         for fruit in fruits:
             print(f"과일 리스트를 이용한 for문 : {fruit}")
 
+
+
 if __name__ == '__main__':
     for_ex = ForEx()
     for_ex.iterable_list()
