@@ -8,7 +8,10 @@ class ForEx:
         for fruit in fruits:
             print(f"과일 리스트를 이용한 for문 : {fruit}")
 
-
+        print("\n문자열을 활용한 for문 예제 2")
+        word = "Python"
+        for char in word:
+            print(f"문자열을 이용한 for문 : {char}")
 
 if __name__ == '__main__':
     for_ex = ForEx()
