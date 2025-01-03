@@ -23,6 +23,13 @@ class ForEx:
         for key, value in person.items():
             print(f"딕셔너리를 활용한 for문 : key = {key}, value = {value}")
 
+        print("\nrange를 활용한 for문 예제 5")
+        for i in range(1, 6):
+            print(f"range 범위 직접 지정 for문 : {i}")
+
+        for i in range(5):
+            print(f"range 범위 마지막 지정 for문 : {i}")
+
 if __name__ == '__main__':
     for_ex = ForEx()
     for_ex.iterable_list()
