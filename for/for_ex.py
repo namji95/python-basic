@@ -35,6 +35,14 @@ class ForEx:
         for number in unique_numbers:
             print(f"집합을 활용한 for문 : {number}")
 
+        print("\n제너레이터를 활용한 for문 예제 7")
+        def generator():
+            for num in range(3):
+                yield num
+
+        for value in generator():
+            print(f"제너레이터를 활용한 for문 : {value}")
+
 if __name__ == '__main__':
     for_ex = ForEx()
     for_ex.iterable_list()
