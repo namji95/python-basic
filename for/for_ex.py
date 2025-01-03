@@ -30,6 +30,11 @@ class ForEx:
         for i in range(5):
             print(f"range 범위 마지막 지정 for문 : {i}")
 
+        print("\n집합을 활용한 for문 예제 6")
+        unique_numbers = {1, 2, 3, 4, 5}
+        for number in unique_numbers:
+            print(f"집합을 활용한 for문 : {number}")
+
 if __name__ == '__main__':
     for_ex = ForEx()
     for_ex.iterable_list()
