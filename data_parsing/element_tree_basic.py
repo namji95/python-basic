@@ -6,6 +6,13 @@ class ElementTreeBasic:
     def element_tree_basic(self):
         print("Element Tree Basic")
 
+        save_path = r"C:\WorkSpace\python-basic\data\element_tree_basic_data.xml"
+
+        # 기존 XML 파일이 존재하면 삭제
+        if os.path.exists(save_path):
+            os.remove(save_path)
+            print(f"기존 XML 파일 삭제: {save_path}")
+
         print("\n-----Element Tree 생성 및 저장-----")
         # 루트 요소 생성
         library = ET.Element("library")  # <library> 태그 생성
@@ -15,7 +22,7 @@ class ElementTreeBasic:
         self.add_book(library, "103", "Data Science Handbook", "Emily White", "Data Science", 2019, True)
 
         # 저장할 폴더 설정 (C:\WorkSpace\python-basic\data\library.xml)
-        save_path = os.path.join("C:\WorkSpace\python-basic\data", "library.xml")
+        save_path = os.path.join("C:\WorkSpace\python-basic\data", "element_tree_basic_data.xml")
 
         # 폴더가 없으면 생성
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
@@ -56,6 +63,37 @@ class ElementTreeBasic:
                 book.find("published").text = "1995"
 
         print("\n수정 후")
+        for book in root.findall("book"):
+            book_info = self.print_element(book)
+            print(book_info)
+
+        print("\n-----xml 정보 추가 (새로운 책 추가)-----")
+        file_path = r"C:\WorkSpace\python-basic\data\element_tree_basic_data.xml"
+
+        tree = ET.parse(file_path)
+        root = tree.getroot()
+
+        new_book = ET.SubElement(root, "book", id="104")
+        ET.SubElement(new_book, "title").text = "Deep Learning Guide"
+        ET.SubElement(new_book, "author").text = "Michael Brown"
+        ET.SubElement(new_book, "genre").text = "AI"
+        ET.SubElement(new_book, "published").text = "2023"
+        ET.SubElement(new_book, "available").text = "true"
+
+        tree.write(file_path, encoding="utf-8", xml_declaration=True)
+
+        root = tree.getroot()
+        for book in root.findall("book"):
+            book_info = self.print_element(book)
+            print(book_info)
+
+        print("\n-----xml 정보 삭제 (대출 불가능한 책 제거)-----")
+        for book in root.findall("book"):
+            if book.find("available").text == "false":
+                root.remove(book)
+
+        tree.write(file_path, encoding="utf-8", xml_declaration=True)
+
         for book in root.findall("book"):
             book_info = self.print_element(book)
             print(book_info)
