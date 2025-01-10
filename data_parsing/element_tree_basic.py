@@ -98,6 +98,11 @@ class ElementTreeBasic:
             book_info = self.print_element(book)
             print(book_info)
 
+        print("\n-----XPath를 활용하여 xml 특정 요소 찾기-----")
+        book = root.find(".//book[@id='101']")
+        if book is not None:
+            print(f"ID 101 도서 제목: {book.find('title').text}")
+
     def add_book(self, library, book_id, title, author, genre, published, available):
         # 책을 추가하는 함수 정의
         book = ET.SubElement(library, "book", id=book_id) # <book> 태그 생성 (id 속성 추가)
