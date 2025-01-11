@@ -1,4 +1,5 @@
 import os
+import xml.dom.minidom
 import xml.etree.ElementTree as ET
 
 
@@ -102,6 +103,11 @@ class ElementTreeBasic:
         book = root.find(".//book[@id='101']")
         if book is not None:
             print(f"ID 101 도서 제목: {book.find('title').text}")
+
+        print("\n-----XML Pretty Print (XML 데이터 가독성 좋게 출력)-----")
+        xml_str = ET.tostring(root, encoding="utf-8")
+        pretty_xml = xml.dom.minidom.parseString(xml_str).toprettyxml(indent="  ")
+        print(pretty_xml)
 
     def add_book(self, library, book_id, title, author, genre, published, available):
         # 책을 추가하는 함수 정의
