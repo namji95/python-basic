@@ -57,3 +57,9 @@ new_dict_data = {
 }
 for index, (key, value) in enumerate(new_dict_data.items(), start=1):
     print(f"{index}번 - {key}: {value}")
+
+print("\nZIP을 이용한 enumerate 출력 예시")
+zip_key_data = ["1", "2", "3", "4", "5"]
+zip_value_data = ["A", "B", "C", "D", "E"]
+for index, (key, value) in enumerate(zip(zip_key_data, zip_value_data)):
+    print(f"{index}번 - {key}: {value}")
