@@ -10,6 +10,12 @@ print("\n리스트를 이용한 enumerate 출력 예시")
 list_data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 for index, value in enumerate(list_data):
     print(index, "번: ", value)
+    
+print("\n리스트를 이용한 enumerate 출력 예시2")
+new_list_data = [[1,2,3], [4,5,6], [7,8,9]]
+for index, values in enumerate(new_list_data):
+    for idx, value in enumerate(values):
+        print(f"{index}번의 {values}의 {idx}번의 {value} 데이터")
 
 print("\n딕셔너리를 이용한 enumerate 출력 예시")
 dict_data = {
