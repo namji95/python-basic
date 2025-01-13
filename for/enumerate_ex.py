@@ -41,3 +41,13 @@ for index, (key, values) in enumerate(list_in_dict_data.items()):
     for idx, value in enumerate(values):
         print(f"{index}번의 - {key}: {values}의 {idx}번의 {value} 데이터")
 
+print("\nenumerate 설정 변경")
+new_dict_data = {
+    "1": "A",
+    "2": "B",
+    "3": "C",
+    "4": "D",
+    "5": "E",
+}
+for index, (key, value) in enumerate(new_dict_data.items(), start=1):
+    print(f"{index}번 - {key}: {value}")
