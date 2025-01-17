@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+    <product id="101">
+        <name>Smartphone</name>
+        <category>Electronics</category>
+        <price>599.99</price>
+        <stock>150</stock>
+        <manufacturer>
+            <name>BrandX</name>
+            <address>123 BrandX St, City, Country</address>
+        </manufacturer>
+        <features>
+            <feature>5G Connectivity</feature>
+            <feature>6GB RAM</feature>
+            <feature>128GB Storage</feature>
+        </features>
+    </product>
+    <product id="102">
+        <name>Laptop</name>
+        <category>Electronics</category>
+        <price>999.99</price>
+        <stock>75</stock>
+        <manufacturer>
+            <name>BrandY</name>
+            <address>456 BrandY Ave, City, Country</address>
+        </manufacturer>
+        <features>
+            <feature>Intel i7 Processor</feature>
+            <feature>16GB RAM</feature>
+            <feature>512GB SSD</feature>
+        </features>
+    </product>
+    <product id="103">
+        <name>Headphones</name>
+        <category>Accessories</category>
+        <price>199.99</price>
+        <stock>200</stock>
+        <manufacturer>
+            <name>BrandZ</name>
+            <address>789 BrandZ Blvd, City, Country</address>
+        </manufacturer>
+        <features>
+            <feature>Noise Cancelling</feature>
+            <feature>Bluetooth 5.0</feature>
+            <feature>Over-ear design</feature>
+        </features>
+    </product>
+</products>
