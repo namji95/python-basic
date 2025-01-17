@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "id": "101",
+      "name": "Smartphone",
+      "category": "Electronics",
+      "price": 599.99,
+      "stock": 150,
+      "manufacturer": {
+        "name": "BrandX",
+        "address": "123 BrandX St, City, Country"
+      },
+      "features": [
+        "5G Connectivity",
+        "6GB RAM",
+        "128GB Storage"
+      ]
+    },
+    {
+      "id": "102",
+      "name": "Laptop",
+      "category": "Electronics",
+      "price": 999.99,
+      "stock": 75,
+      "manufacturer": {
+        "name": "BrandY",
+        "address": "456 BrandY Ave, City, Country"
+      },
+      "features": [
+        "Intel i7 Processor",
+        "16GB RAM",
+        "512GB SSD"
+      ]
+    },
+    {
+      "id": "103",
+      "name": "Headphones",
+      "category": "Accessories",
+      "price": 199.99,
+      "stock": 200,
+      "manufacturer": {
+        "name": "BrandZ",
+        "address": "789 BrandZ Blvd, City, Country"
+      },
+      "features": [
+        "Noise Cancelling",
+        "Bluetooth 5.0",
+        "Over-ear design"
+      ]
+    }
+  ]
+}
