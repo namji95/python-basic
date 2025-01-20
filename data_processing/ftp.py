@@ -8,7 +8,8 @@ host = ftp_constant.FTP_HOST
 user = ftp_constant.FTP_USER
 pw = ftp_constant.FTP_PW
 local_dir = ftp_constant.LOCAL_DIRECTORY
-local_file_path = os.path.join(local_dir, "ReadMe.txt")
+# 파일 리스트 먼저 확인 후 원하는 파일 선택
+local_file_path = os.path.join(local_dir, "파일 선택")
 
 # # 파일 정보
 # try:
@@ -39,6 +40,7 @@ with ftplib.FTP() as ftp:
 
     # 파일 다운로드
     with open(local_file_path, "wb") as f:
-        ftp.retrbinary("RETR ReadMe.txt", f.write)
+        # 파일 리스트 읽어 리스트에 있는 파일 선택해서 내려받기
+        ftp.retrbinary("파일 선택", f.write)
 
     print(f"파일 다운로드 완료: ReadMe.txt")
