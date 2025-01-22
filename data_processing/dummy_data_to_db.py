@@ -10,7 +10,7 @@ class DummyDataToDB:
         fake = Faker('ko_KR')
         Faker.seed(1)
 
-        repeat_count = 10000
+        repeat_count = 100000
 
         names = [fake.name() for _ in range(repeat_count)]
         phones = [
@@ -22,7 +22,7 @@ class DummyDataToDB:
             for _ in range(repeat_count)
         ]
         emails = [fake.unique.free_email() for _ in range(repeat_count)]
-        user_status = ['active' for _ in range(repeat_count)]
+        user_status = [random.choice(['active', 'inactive', 'dormancy']) for _ in range(repeat_count)]
         user_class = [random.choice(['일반', 'Family', 'VIP', 'VVIP']) for _ in range(repeat_count)]
         marketing_agree = [random.choice(['0', '1']) for _ in range(repeat_count)]
         social_login = [random.choice(['google', 'facebook', 'kakao', 'naver']) for _ in range(repeat_count)]
@@ -40,6 +40,7 @@ class DummyDataToDB:
         })
 
         records = df.to_dict(orient='records')
+
         dummy_db = DummyDatabase()
 
         engine = dummy_db.dummy_database()
