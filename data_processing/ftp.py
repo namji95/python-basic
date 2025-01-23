@@ -11,18 +11,6 @@ local_dir = ftp_constant.LOCAL_DIRECTORY
 # 파일 리스트 먼저 확인 후 원하는 파일 선택
 local_file_path = os.path.join(local_dir, "파일 선택")
 
-# # 파일 정보
-# try:
-#     with ftplib.FTP() as ftp:
-#         ftp.connect(host=host, port=21)
-#         ftp.encoding = 'utf-8'
-#         ftp.login(user=user, passwd=pw)
-#
-#         print(ftp.nlst())
-#
-# except Exception as e:
-#     print(e)
-
 with ftplib.FTP() as ftp:
     # ftp 접근
     ftp.connect(host=host, port=21)
