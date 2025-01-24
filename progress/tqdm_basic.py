@@ -18,6 +18,13 @@ class TqdmTest:
         print("\n-----tqdm 과 리스트 컴프리헨션 활용-----")
         result = [time.sleep(0.3) or i**2 for i in tqdm(range(5), desc="Calculating")]
 
+        print("\n-----tqdm 과 map 활용-----")
+        numbers = range(5)
+        list(tqdm(map(lambda _: self.process(), numbers), total=len(numbers), desc="Map processing"))
+
+    def process(self):
+        time.sleep(0.4)
+
 if __name__ == '__main__':
     tqdmTest = TqdmTest()
     tqdmTest.tqdm_test()
