@@ -1,3 +1,4 @@
+import pandas as pd
 from tqdm import tqdm
 import time
 
@@ -18,9 +19,15 @@ class TqdmTest:
         print("\n-----tqdm 과 리스트 컴프리헨션 활용-----")
         result = [time.sleep(0.3) or i**2 for i in tqdm(range(5), desc="Calculating")]
 
-        print("\n-----tqdm 과 map 활용-----")
+        print("\n-----tqdm과 map 활용-----")
         numbers = range(5)
         list(tqdm(map(lambda _: self.process(), numbers), total=len(numbers), desc="Map processing"))
+
+        print("\n-----tqdm과 pandas 활용-----")
+        tqdm.pandas(desc="DataFrame processing")
+
+        df = pd.DataFrame({"numbers": numbers})
+        df['numbers'].progress_apply(lambda x: time.sleep(0.5) or x**2)
 
     def process(self):
         time.sleep(0.4)
