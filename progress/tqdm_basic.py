@@ -3,8 +3,8 @@ from tqdm import tqdm
 import time
 
 
-class TqdmTest:
-    def tqdm_test(self):
+class TqdmBasic:
+    def tqdm_basic(self):
         print("\ntqdm 라이브러리를 활용한 예시 코드")
 
         print("\n-----tqdm 기초 사용법-----")
@@ -33,5 +33,5 @@ class TqdmTest:
         time.sleep(0.4)
 
 if __name__ == '__main__':
-    tqdmTest = TqdmTest()
-    tqdmTest.tqdm_test()
+    tqdmTest = TqdmBasic()
+    tqdmTest.tqdm_basic()
