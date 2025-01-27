@@ -1,4 +1,6 @@
 import asyncio
+from multiprocessing import Pool
+
 from tqdm.asyncio import tqdm  # 비동기 방식 tqdm 임포트
 import threading
 import time
@@ -45,7 +47,17 @@ class TqdmDeepening:
             await task
             progress_bar.update(1)  # 작업이 완료되면 진행률 업데이트
 
+    def tqdm_multiprocessing(self):
+        with Pool(4) as p:
+            result = list(tqdm(p.imap(self.process, range(1, 6)), "MultiProcessing", total=5))
+            print(result)
+
+    def process(self, x):
+        time.sleep(0.3)
+        return x**2
+
 if __name__ == '__main__':
     tqdm_deepening = TqdmDeepening()
     tqdm_deepening.tqdm_threading()
     asyncio.run(tqdm_deepening.tqdm_async())
+    tqdm_deepening.tqdm_multiprocessing()
