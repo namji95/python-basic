@@ -50,14 +50,23 @@ class TqdmDeepening:
     def tqdm_multiprocessing(self):
         with Pool(4) as p:
             result = list(tqdm(p.imap(self.process, range(1, 6)), "MultiProcessing", total=5))
-            print(result)
 
     def process(self, x):
         time.sleep(0.3)
         return x**2
+
+    def tqdm_zip(self):
+        list1 = range(10)
+        list2 = range(10, 20)
+
+        for x, y in tqdm(zip(list1, list2), total=5, desc="Zipping"):
+            time.sleep(0.4)
 
 if __name__ == '__main__':
     tqdm_deepening = TqdmDeepening()
     tqdm_deepening.tqdm_threading()
     asyncio.run(tqdm_deepening.tqdm_async())
     tqdm_deepening.tqdm_multiprocessing()
+    tqdm_deepening.tqdm_zip()
+
+# todo: 설명 print 추가
